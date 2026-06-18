@@ -18,6 +18,8 @@ La mochila debe ser estable, modular y mantenible, con capacidad de operar duran
 
 La prioridad técnica del sistema será conseguir la mayor estabilidad de red posible usando **bonding con módems USB**, complementado por las demás interfaces disponibles en el LiveU elegido: Ethernet directo, Wi-Fi y cualquier otro enlace soportado por el modelo final.
 
+La primera iteración debe priorizar estabilidad y simplicidad operativa con el flujo **Sony FX3 → LiveU Solo PRO HDMI**, dejando multicámara, ATEM y control remoto como una expansión futura una vez validada la base.
+
 La idea principal es construir un sistema donde puedan convivir:
 
 - LiveU como encoder/bonding principal.
@@ -45,6 +47,7 @@ La idea principal es construir un sistema donde puedan convivir:
 7. **Autonomía real:** el diseño debe considerar varias horas de transmisión independiente, incluyendo cámara si se alimenta desde la mochila.
 8. **Aprovechar compartimentos:** la mochila debe facilitar separación física entre energía, red, encoder, cables y accesorios.
 9. **Máximo uso de enlaces:** el diseño debe dejar disponibles las interfaces de red del LiveU elegido, sin bloquear USB, Ethernet o Wi-Fi innecesariamente.
+10. **Primera iteración simple:** antes de agregar multicámara, switcher o cerebro de control, se validará una versión base estable de una sola cámara.
 
 ---
 
@@ -96,11 +99,43 @@ La idea principal es construir un sistema donde puedan convivir:
 
 ---
 
+### 2026-06-18 — Primera iteración de video: FX3 directo a LiveU Solo PRO HDMI
+
+**Decisión:** La primera iteración funcional de la mochila será una configuración de una sola cámara: **Sony FX3 → LiveU Solo PRO HDMI**.
+
+**Modelo / marca elegida:** Sony FX3 como cámara principal y LiveU Solo PRO en versión HDMI como encoder/bonding objetivo para esta iteración.
+
+**Motivo:** Esta arquitectura reduce puntos de falla, consumo, calor, cableado y complejidad operativa. Antes de agregar ATEM, multicámara, dron, cámara inalámbrica o control remoto, se validará una base simple y estable.
+
+**Alternativas consideradas:** Módulo multicámara con ATEM Mini/Extreme, dron, cámara inalámbrica adicional, monitor externo para multiview y control remoto mediante SBC con Companion. Estas ideas quedan como expansión futura, no como requisito de la primera versión.
+
+**Impacto en el workflow:** El operador podrá enfocarse en cámara, audio, energía y estabilidad de red sin depender de switcheo multicámara en campo. La mochila se probará primero como sistema IRL de una sola cámara.
+
+**Pendientes relacionados:** Definir cable HDMI, alivio de tensión, alimentación de FX3, tipo de batería, ubicación del LiveU, cantidad de módems USB, configuración de bonding y pruebas de autonomía.
+
+**Estado:** Aprobado.
+
+---
+
+## Expansiones futuras en evaluación
+
+Estas ideas no forman parte obligatoria de la primera iteración, pero quedan registradas para una versión multicámara posterior:
+
+- ATEM Mini / ATEM Mini Extreme como switcher previo al LiveU.
+- Dron como fuente aérea mediante salida HDMI del control, si el modelo de control lo permite.
+- Cámara inalámbrica adicional mediante receptor HDMI.
+- Monitor externo pequeño para que un asistente pueda ver program/multiview y switchear.
+- Raspberry Pi, Orange Pi o mini PC con Companion como cerebro de control para mandar comandos al ATEM.
+- Control desde celular/tablet conectado al router interno de la mochila.
+
+---
+
 ## Decisiones técnicas pendientes
 
 Estas decisiones todavía no están cerradas y deben definirse durante el diseño:
 
-- Modelo exacto de LiveU a utilizar.
+- Modelo exacto de mochila de fotógrafo.
+- Confirmar compra/alquiler del LiveU Solo PRO HDMI u otra alternativa similar si el presupuesto o disponibilidad cambia.
 - Cantidad final y modelo de módems/dongles USB.
 - Validar cuántos enlaces simultáneos soporta el LiveU elegido.
 - Definir si Ethernet directo será solo backup o parte activa del bonding cuando esté disponible.
@@ -110,10 +145,12 @@ Estas decisiones todavía no están cerradas y deben definirse durante el diseñ
 - Sistema de energía de respaldo.
 - Método de montaje interno de la mochila.
 - Distribución física de los equipos dentro de la mochila.
-- Flujo de video desde Sony FX3 hacia LiveU.
+- Cable HDMI entre Sony FX3 y LiveU Solo PRO HDMI.
+- Sistema de alivio de tensión para HDMI, USB y alimentación.
+- Definir si la Sony FX3 usará batería interna, dummy battery o batería dedicada externa.
 - Uso exacto del Accsoon TX/RX dentro del workflow.
 - Audio principal y audio de backup.
-- Cableado USB, Ethernet, HDMI/SDI y alimentación.
+- Cableado USB, Ethernet, HDMI y alimentación.
 - Sistema de ventilación o control térmico.
 - Checklist de encendido, operación y apagado.
 - Checklist de emergencia para caídas de señal.
@@ -128,12 +165,13 @@ Estas decisiones todavía no están cerradas y deben definirse durante el diseñ
 
 - Sony FX3 como cámara principal.
 - Rig SmallRig para montaje, protección y accesorios.
-- Accsoon TX/RX para monitoreo o transmisión inalámbrica auxiliar.
-- Cable HDMI o SDI según el flujo final hacia LiveU.
+- LiveU Solo PRO HDMI como encoder/bonding objetivo de la primera iteración.
+- Cable HDMI corto y seguro desde Sony FX3 hacia LiveU Solo PRO HDMI.
+- Accsoon TX/RX como posible monitoreo o transmisión inalámbrica auxiliar en fase posterior.
 
 ### Encoder / Bonding
 
-- LiveU como unidad principal.
+- LiveU Solo PRO HDMI como unidad principal objetivo.
 - Módems/dongles USB externos para múltiples operadoras.
 - Ethernet directo al LiveU para usar red cableada cuando esté disponible.
 - Wi-Fi como enlace adicional o auxiliar, según pruebas de estabilidad.
