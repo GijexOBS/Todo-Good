@@ -12,15 +12,22 @@ Este documento servirá como memoria viva del proyecto: cada decisión final que
 
 ## Objetivo del proyecto
 
-Diseñar una mochila IRL estable, modular y mantenible para transmisiones en exteriores de Todo Good, considerando video, audio, energía, conectividad, redundancia, ergonomía y operación real en campo.
+Armar una mochila IRL funcional para transmisiones en exteriores de Todo Good, tomando como base una **mochila de fotógrafo** por su estructura, cierres, divisiones internas y compartimentos aprovechables para adaptar equipo técnico de transmisión.
+
+La mochila debe ser estable, modular y mantenible, con capacidad de operar durante varias horas de transmisión de forma independiente. La autonomía debe considerar no solo el encoder, red y accesorios, sino también la cámara principal si se decide alimentarla mediante dummy battery.
+
+La prioridad técnica del sistema será conseguir la mayor estabilidad de red posible usando **bonding con módems USB**, complementado por las demás interfaces disponibles en el LiveU elegido: Ethernet directo, Wi-Fi y cualquier otro enlace soportado por el modelo final.
 
 La idea principal es construir un sistema donde puedan convivir:
 
 - LiveU como encoder/bonding principal.
-- Múltiples dongles USB externos para conectividad celular.
+- Múltiples dongles o módems USB externos para conectividad celular.
+- Ethernet directo al LiveU como enlace adicional cuando exista una red cableada disponible.
+- Wi-Fi como enlace adicional o auxiliar, según estabilidad real en campo.
 - Adaptadores en L o soluciones de alivio de tensión para evitar que los cables USB se doblen o rompan.
 - Router inalámbrico interno para red local y/o dispositivos auxiliares.
-- Sistema de energía suficiente para alimentar toda la operación.
+- Sistema de energía suficiente para alimentar toda la operación durante varias horas.
+- Posible alimentación de cámara mediante dummy battery si el workflow lo requiere.
 - Sony FX3 con rig SmallRig como cámara principal.
 - Sistema Accsoon TX/RX para monitoreo o envío inalámbrico según el workflow final.
 - Cableado ordenado, reemplazable y fácil de diagnosticar en vivo.
@@ -35,6 +42,9 @@ La idea principal es construir un sistema donde puedan convivir:
 4. **Operación simple:** en vivo no debe requerir abrir menús raros o hacer troubleshooting complejo.
 5. **Mantenimiento fácil:** cables, adaptadores, baterías y dongles deben poder reemplazarse rápido.
 6. **Documentación constante:** cada decisión final se registra aquí.
+7. **Autonomía real:** el diseño debe considerar varias horas de transmisión independiente, incluyendo cámara si se alimenta desde la mochila.
+8. **Aprovechar compartimentos:** la mochila debe facilitar separación física entre energía, red, encoder, cables y accesorios.
+9. **Máximo uso de enlaces:** el diseño debe dejar disponibles las interfaces de red del LiveU elegido, sin bloquear USB, Ethernet o Wi-Fi innecesariamente.
 
 ---
 
@@ -62,12 +72,39 @@ La idea principal es construir un sistema donde puedan convivir:
 
 ---
 
+### 2026-06-18 — Base física, autonomía y estrategia de red
+
+**Decisión:** El sistema se diseñará tomando como base una **mochila de fotógrafo**, aprovechando sus cierres, divisiones internas y múltiples compartimentos para adaptar los módulos de transmisión.
+
+**Modelo / marca elegida:** Pendiente. Primero se define el tipo de mochila; el modelo exacto se decidirá después.
+
+**Motivo:** Una mochila de fotógrafo permite organizar equipo delicado en compartimentos separados, reducir movimiento interno, proteger los módulos y facilitar acceso rápido a cables, baterías, módems, router y encoder.
+
+**Objetivo operativo:** La mochila debe poder aguantar varias horas de transmisión de forma independiente. Esto debe incluir el consumo de red, encoder/bonding, router, accesorios y cámara principal si se decide usar dummy battery.
+
+**Prioridad de red:** Se buscará la mayor estabilidad posible usando bonding con módems USB, idealmente combinando distintas operadoras para reducir riesgo de caída por cobertura irregular.
+
+**Interfaces de red consideradas:** Módems USB, Ethernet directo al LiveU y Wi-Fi. El diseño físico debe permitir usar todas las interfaces disponibles del LiveU elegido.
+
+**Nota técnica:** Se tomará como objetivo de diseño contemplar hasta 6 enlaces simultáneos si el modelo final de LiveU lo soporta, por ejemplo una combinación tipo módems USB + Ethernet + Wi-Fi. Esta cifra queda pendiente de validación contra el modelo exacto que se compre o alquile.
+
+**Impacto en el workflow:** El diseño físico debe separar energía, conectividad, encoder y cableado para que el operador pueda diagnosticar problemas rápidamente durante una transmisión en vivo.
+
+**Pendientes relacionados:** Elegir modelo exacto de mochila, modelo exacto de LiveU, distribución interna, sistema de energía, cantidad/modelo de módems USB, operadoras celulares, router interno y flujo final de cámara hacia encoder.
+
+**Estado:** Aprobado.
+
+---
+
 ## Decisiones técnicas pendientes
 
 Estas decisiones todavía no están cerradas y deben definirse durante el diseño:
 
 - Modelo exacto de LiveU a utilizar.
-- Cantidad final y modelo de dongles USB.
+- Cantidad final y modelo de módems/dongles USB.
+- Validar cuántos enlaces simultáneos soporta el LiveU elegido.
+- Definir si Ethernet directo será solo backup o parte activa del bonding cuando esté disponible.
+- Definir si Wi-Fi será parte activa del bonding o solo enlace auxiliar.
 - Router interno recomendado.
 - Sistema de energía principal.
 - Sistema de energía de respaldo.
@@ -97,7 +134,9 @@ Estas decisiones todavía no están cerradas y deben definirse durante el diseñ
 ### Encoder / Bonding
 
 - LiveU como unidad principal.
-- Dongles USB externos para múltiples operadoras.
+- Módems/dongles USB externos para múltiples operadoras.
+- Ethernet directo al LiveU para usar red cableada cuando esté disponible.
+- Wi-Fi como enlace adicional o auxiliar, según pruebas de estabilidad.
 - Adaptadores USB en L o extensiones cortas con alivio de tensión.
 
 ### Red
@@ -112,6 +151,7 @@ Estas decisiones todavía no están cerradas y deben definirse durante el diseñ
 - Reguladores/conversores según voltajes requeridos.
 - Cables DC adecuados para cada equipo.
 - Power bank o batería auxiliar para backup.
+- Posible dummy battery para alimentar la Sony FX3 desde el sistema principal o desde una batería dedicada.
 
 ### Cableado y accesorios
 
